@@ -1,10 +1,8 @@
 module.exports.passthrough = [
   "src/admin",
-  "content/uploads",
-  "src/assets/js/main.min.js",
-  "src/assets/css/main.min.css",
+  "uploads",
 
   ...(process.env.NODE_ENV === "development"
-    ? ["src/assets/js/main.js", "src/assets/css/main.css", "src/assets/css/main.css.map"]
-    : []),
+    ? ["src/assets/js/", "src/assets/css/"]
+    : ["src/assets/js/*min.js", "src/assets/css/*.min.css"]),
 ];
