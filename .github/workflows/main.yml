@@ -12,7 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Run a multi-line script
-        run: |
-          npm ci
-          npm run build
+      
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.0.0
+        with:
+          node-version: '14'
+
+      - run: npm install
+      - run: npm run build
