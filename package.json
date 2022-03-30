@@ -10,7 +10,7 @@
     "css-compile": "run-s sass-compile minify-css",
     "dev": "cross-env NODE_ENV=development eleventy --serve",
     "start": "rimraf public && concurrently --kill-others \"npm run dev\" \"npm run netlify-cms-proxy\"",
-    "prebuild": "run-s \"rimraf public\" css-compile minify-js",
+    "prebuild": "rimraf public && run-s css-compile minify-js",
     "build": "cross-env NODE_ENV=production eleventy",
     "netlify-cms-proxy": "netlify-cms-proxy-server"
   },
